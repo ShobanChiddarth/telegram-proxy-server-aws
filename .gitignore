@@ -26,9 +26,6 @@
 # Local .terraform directories
 **/.terraform/*
 
-# lock files
-*.lock.hcl
-
 # plan files
 *.tfplan
 
