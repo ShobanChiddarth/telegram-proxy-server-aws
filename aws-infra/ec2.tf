@@ -5,6 +5,7 @@ locals {
     apt-get upgrade -y
     curl https://get.docker.com | bash
     adduser ubuntu docker
+    docker pull telegrammessenger/proxy:latest
 EOF
 
 }
