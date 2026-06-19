@@ -3,6 +3,8 @@ locals {
     #!/bin/bash
     apt-get update
     apt-get upgrade -y
+    curl https://get.docker.com | bash
+    adduser ubuntu docker
 EOF
 
 }
