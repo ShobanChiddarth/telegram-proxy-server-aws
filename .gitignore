@@ -2,6 +2,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,terraform
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,terraform
 
+### Custom ###
+*.env
+!sample.env
+*.pem
+
 ### Linux ###
 *~
 
@@ -20,6 +25,12 @@
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
+
+# lock files
+*.lock.hcl
+
+# plan files
+*.tfplan
 
 # .tfstate files
 *.tfstate
