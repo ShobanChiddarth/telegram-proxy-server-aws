@@ -12,7 +12,7 @@ EOF
     docker pull telegrammessenger/proxy:latest
     docker run -d -p 0.0.0.0:443:443 --name=mtproto-proxy --restart=always -v /data:/data telegrammessenger/proxy:latest
     docker pull shobanchiddarth/tproxy-server-expose-details:1.0.0
-    docker run -d -p 0.0.0.0:8000:8000 --name=expose-details --restart=always -v /data:/data shobanchiddarth/tproxy-server-expose-details:1.0.0
+    docker run -d -p 0.0.0.0:80:8000 --name=expose-details --restart=always -v /data:/data shobanchiddarth/tproxy-server-expose-details:1.0.0
 EOF
 
 }
