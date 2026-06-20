@@ -1,6 +1,6 @@
 # Telegram proxy server hosted in AWS
 
-One click deploy IaC to run a Telegram proxy server in AWS. 
+One click deploy IaC to run a Telegram proxy server in AWS.
 
 ### Steps to deploy
 
@@ -18,3 +18,7 @@ One click deploy IaC to run a Telegram proxy server in AWS.
 1. Open the public IP of the EC2 in a browser
 2. Use the connection details shown there (IP, port, secret) in telegram client to connect to the proxy server
 3. Bypass censorship and use Telegram
+
+### Additional Details.
+
+The EC2 instance is deployed in Thailand (`ap-southeast-7`). Change the region in [aws-infra/main.tf](./aws-infra/main.tf#2) if you want it deployed somewhere else. Also feel free 2 set the AZ in [aws-infra/subnet.tf](./aws-infra/subnet.tf) if you want.
