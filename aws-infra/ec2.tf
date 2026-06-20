@@ -21,7 +21,7 @@ resource "aws_instance" "ProxyServer" {
   ami = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   subnet_id = aws_subnet.MainSubnet.id
-  associate_public_ip_address = true
+#   associate_public_ip_address = true
   user_data = join("\n", [local.base_init, local.proxyserver_init])
   vpc_security_group_ids = [ aws_security_group.allow_ssh_https_ping.id ]
   key_name = aws_key_pair.proxy_server_key_pair.key_name
@@ -29,4 +29,15 @@ resource "aws_instance" "ProxyServer" {
   tags = {
     Name = "ProxyServer"
   }
+}
+
+resource "aws_eip" "ProxyServerEIP" {
+  instance = aws_instance.ProxyServer.id
+  domain   = "vpc"
+
+  tags = {
+    Name = "proxy-server-eip"
+  }
+
+  depends_on = [aws_internet_gateway.TProxyIGW]
 }
