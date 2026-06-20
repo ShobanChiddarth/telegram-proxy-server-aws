@@ -3,9 +3,14 @@ locals {
     #!/bin/bash
     apt-get update
     apt-get upgrade -y
+EOF
+
+  proxyserver_init = <<-EOF
+    mkdir /data
     curl https://get.docker.com | bash
     adduser ubuntu docker
     docker pull telegrammessenger/proxy:latest
+    docker run -d -p 0.0.0.0:443:443 --name=mtproto-proxy --restart=always -v /data:/data telegrammessenger/proxy:latest
 EOF
 
 }
