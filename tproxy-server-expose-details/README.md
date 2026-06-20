@@ -25,3 +25,7 @@ and map it back into this container.
 docker run -d -p 0.0.0.0:443:443 --name=mtproto-proxy --restart=always -v /data:/data telegrammessenger/proxy:latest
 docker run -d -v /data:/data -p 0.0.0.0:80:8000 shobanchiddarth/tproxy-server-expose-details:1.0.0
 ```
+
+## Docker Hub Repo
+
+- [shobanchiddarth/tproxy-server-expose-details](https://hub.docker.com/r/shobanchiddarth/tproxy-server-expose-details)
