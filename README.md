@@ -12,6 +12,7 @@ One click deploy IaC to run a Telegram proxy server in AWS.
 6. `source .env`
 7. `terraform plan -out plan.tfplan`
 8. `terraform apply plan.tfplan`
+9. Open the public IP of the EC2 in a browser for proxy server connection details.
 
 ### Using the Proxy server
 
