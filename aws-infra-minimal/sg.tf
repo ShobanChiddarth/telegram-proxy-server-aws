@@ -1,7 +1,7 @@
 # will modify this later
 
 resource "aws_security_group" "allow_ssh_https_ping" {
-  name        = "security-group"
+  name        = "tproxy-server-security-group"
   vpc_id      = aws_vpc.TProxyVPC.id
   description = "Allow SSH and ping and HTTPS from internet"
 
