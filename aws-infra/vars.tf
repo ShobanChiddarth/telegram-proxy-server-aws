@@ -7,3 +7,13 @@ variable "region" {
 data "aws_availability_zones" "AZs" {
   state = "available"
 }
+
+variable "admin_password" {
+  type = string
+  sensitive = true
+}
+
+variable "proxy_secret" {
+  type = string
+  sensitive = false
+}
