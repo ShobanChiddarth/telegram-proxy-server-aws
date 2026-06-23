@@ -1,3 +1,13 @@
+resource "aws_subnet" "ManagementSubnet" {
+  vpc_id = aws_vpc.TProxyVPC.id
+  cidr_block = "10.0.0.0/24"
+}
+
+resource "aws_route_table_association" "managementSubnetRTassoc" {
+  subnet_id = aws_subnet.ManagementSubnet.id
+  route_table_id = aws_route_table.to_igw.id
+}
+
 resource "aws_subnet" "PublicSubnet1" {
   vpc_id = aws_vpc.TProxyVPC.id
   cidr_block = "10.0.1.0/24"
