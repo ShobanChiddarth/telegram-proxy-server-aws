@@ -20,7 +20,33 @@ resource "aws_security_group" "nlb_sg" {
     }
 }
 
+resource "aws_security_group" "proxy_server_sg" {
+    name = "proxy_server_sg"
+    description = "Allow :443 from NLB, :22 from management"
+    vpc_id = aws_vpc.TProxyVPC.id
 
-resource "aws_security_group" "proxy_server_security_group" {
-  
+    ingress {
+        description = "allow ssh from management"
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = [ aws_subnet.ManagementSubnet.cidr_block ]
+    }
+
+    ingress {
+        description = "allow :443 from NLB"
+        from_port = 443
+        to_port = 443
+        protocol = "tcp"
+        security_groups = [ aws_security_group.nlb_sg.id ]
+    }
+
+    egress {
+        description = "allow all"
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
 }
