@@ -12,7 +12,7 @@ resource "aws_security_group" "nlb_sg" {
     }
 
     egress {
-        description = "from :443 of NLB to EC2's :443"
+        description = "from :443 of NLB to EC2s :443"
         from_port = 443
         to_port = 443
         protocol = "tcp"
