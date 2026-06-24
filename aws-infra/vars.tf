@@ -44,3 +44,9 @@ EOF
 EOF
   }
 }
+
+variable "my_public_ip" {
+    type = string
+    description = "my public ip"
+    default = "0.0.0.0/0"
+}
