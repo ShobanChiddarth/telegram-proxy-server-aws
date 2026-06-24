@@ -24,6 +24,7 @@ variable "user_data" {
 
   default = {
     base = <<-EOF
+        #!/bin/bash
         apt-get update
         apt-get upgrade -y
 EOF
@@ -36,7 +37,7 @@ EOF
     proxy_server = <<-EOF
         apt install -y awscli
         mkdir -p /data
-        export PROXY_SECRET=$(aws ssm get-parameter --name "/tproxy/proxy-secret" --query "Parameter.Value" --output text)
+        PROXY_SECRET=$(aws ssm get-parameter --name "${aws_ssm_parameter.proxy_secret.name}" --query "Parameter.Value" --output text)
         echo "$PROXY_SECRET" > /data/secret
         echo "-- -S $PROXY_SECRET" > /data/secret_cmd
         docker pull telegrammessenger/proxy:latest
