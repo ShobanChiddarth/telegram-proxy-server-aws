@@ -13,4 +13,12 @@ resource "aws_launch_template" "ProxyInstanceLaunchTemplate" {
     tags = {
       "Name" = "ProxyServerLaunchTemplate"
     }
+
+    tag_specifications {
+    resource_type = "instance"
+
+        tags = {
+            Name = "ProxyServer"
+        }
+    }
 }
