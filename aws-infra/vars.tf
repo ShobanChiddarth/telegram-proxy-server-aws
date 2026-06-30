@@ -37,7 +37,7 @@ EOF
     proxy_server = <<-EOF
         apt install -y awscli
         mkdir -p /data
-        PROXY_SECRET=$(aws ssm get-parameter --name "${aws_ssm_parameter.proxy_secret.name}" --query "Parameter.Value" --output text)
+        PROXY_SECRET=$(aws ssm get-parameter --region ${var.region} --name "${aws_ssm_parameter.proxy_secret.name}" --query "Parameter.Value" --output text)
         echo "$PROXY_SECRET" > /data/secret
         echo "-- -S $PROXY_SECRET" > /data/secret_cmd
         docker pull telegrammessenger/proxy:latest
