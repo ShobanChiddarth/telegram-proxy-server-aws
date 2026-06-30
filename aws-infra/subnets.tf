@@ -30,3 +30,21 @@ resource "aws_route_table_association" "publicSubnet2RTassoc" {
   subnet_id = aws_subnet.PublicSubnet2.id
   route_table_id = aws_route_table.to_igw.id
 }
+
+resource "aws_subnet" "PrivateSubnet1" {
+    vpc_id = aws_vpc.TProxyVPC.id
+    cidr_block = "10.0.3.0/24"
+    availability_zone = data.aws_availability_zones.AZs.names[0]
+}
+
+resource "aws_route_table_association" "priv1RTassoc" {
+    subnet_id = aws_subnet.PrivateSubnet1
+    route_table_id = aws_route_table.to_nat_instance.id
+}
+
+
+resource "aws_subnet" "PrivateSubnet2" {
+    vpc_id = aws_vpc.TProxyVPC.id
+    cidr_block = "10.0.4.0/24"
+    availability_zone = data.aws_availability_zones.AZs.names[1]
+}
