@@ -1,6 +1,7 @@
 resource "aws_subnet" "ManagementSubnet" {
   vpc_id = aws_vpc.TProxyVPC.id
   cidr_block = "10.0.0.0/24"
+  availability_zone = data.aws_availability_zones.AZs[0]
 }
 
 resource "aws_route_table_association" "managementSubnetRTassoc" {
