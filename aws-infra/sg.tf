@@ -41,6 +41,32 @@ resource "aws_security_group" "bastion_sg" {
     }
 }
 
+resource "aws_security_group" "nat_instance_sg" {
+    name = "nat_instance_sg"
+    vpc_id = aws_vpc.TProxyVPC.id
+
+    ingress {
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        security_groups = [ aws_security_group.bastion_sg.id ]
+    }
+
+    ingress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = [ aws_vpc.TProxyVPC.cidr_block ]
+    }
+
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+}
+
 resource "aws_security_group" "proxy_server_sg" {
     name = "proxy_server_sg"
     description = "Allow :443 from NLB, :22 from management"
