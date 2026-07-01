@@ -38,7 +38,7 @@ resource "aws_subnet" "PrivateSubnet1" {
 }
 
 resource "aws_route_table_association" "priv1RTassoc" {
-    subnet_id = aws_subnet.PrivateSubnet1
+    subnet_id = aws_subnet.PrivateSubnet1.id
     route_table_id = aws_route_table.to_nat_instance.id
 }
 
