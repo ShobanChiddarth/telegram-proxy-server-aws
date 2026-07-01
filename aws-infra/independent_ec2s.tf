@@ -78,5 +78,5 @@ resource "aws_eip" "nat_instance_eip" {
        "Name" = "nat_instance_eip"
      }
 
-     depends_on = [ aws_internet_gateway.NatInstanceDemoIGW ]
+     depends_on = [ aws_internet_gateway.TProxyIGW ]
 }
