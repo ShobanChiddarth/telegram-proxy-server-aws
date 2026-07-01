@@ -51,7 +51,7 @@ resource "aws_eip" "bastion_eip" {
        "Name" = "bastion_instance_eip"
      }
 
-     depends_on = [ aws_internet_gateway.NatInstanceDemoIGW ]
+     depends_on = [ aws_internet_gateway.TProxyIGW ]
 }
 
 
