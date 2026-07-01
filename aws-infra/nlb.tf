@@ -1,5 +1,5 @@
 resource "aws_lb" "proxy_nlb" {
-    name = "proxy_nlb"
+    name = "proxy-nlb"
     load_balancer_type = "network"
     internal = false
 
