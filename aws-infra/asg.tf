@@ -1,5 +1,6 @@
 resource "aws_autoscaling_group" "proxy_asg" {
     name = "proxy_asg"
+    target_group_arns = [ aws_lb_target_group.proxy_target_group.arn ]
 
     # will setup lambda based manual overrides later
     min_size = 1
