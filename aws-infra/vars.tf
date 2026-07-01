@@ -1,7 +1,7 @@
 variable "region" {
   type = string
-  description = "Thailand; closest to India that is not affected by WW3 and also not in China"
-  default = "ap-southeast-7"
+  description = "Singapore; closest to India that is not affected by WW3 and also not in China and not in Thailand (Thailand not working)"
+  default = "ap-southeast-1"
 }
 
 data "aws_availability_zones" "AZs" {
