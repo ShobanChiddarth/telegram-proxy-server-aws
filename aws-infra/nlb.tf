@@ -27,7 +27,7 @@ resource "aws_lb_listener" "proxy_nlb_listener" {
 
 
 resource "aws_lb_target_group" "proxy_target_group" {
-    name = "proxy_target_group"
+    name = "proxy-target-group"
     port = 443
     protocol = "TCP"
 
