@@ -8,8 +8,8 @@ resource "aws_autoscaling_group" "proxy_asg" {
     max_size = 2
 
     vpc_zone_identifier = [ 
-        aws_subnet.PublicSubnet1.id,
-        aws_subnet.PublicSubnet2.id
+        aws_subnet.PrivateSubnet1.id,
+        aws_subnet.PrivateSubnet2.id
     ]
 
     launch_template {
