@@ -1,5 +1,7 @@
 # Telegram proxy server hosted in AWS
 
+> NOTE: README needs to be updated. This is old README that was written for [aws-infra-minimal](./aws-infra-minimal/) (was previously `aws-infra`, current `aws-infra` is the one being engineered for large scale)
+
 One click deploy IaC to run a Telegram proxy server in AWS.
 
 ### Steps to deploy
