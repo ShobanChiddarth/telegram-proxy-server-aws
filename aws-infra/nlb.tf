@@ -3,7 +3,7 @@ resource "aws_lb" "proxy_nlb" {
     load_balancer_type = "network"
     internal = false
 
-    subnets = [ 
+    subnets = [
         aws_subnet.PublicSubnet1.id,
         aws_subnet.PublicSubnet2.id
     ]
