@@ -7,7 +7,7 @@ output "port" {
 }
 
 output "proxy_secret" {
-    value = aws_ssm_parameter.proxy_secret.value
+    value = nonsensitive(aws_ssm_parameter.proxy_secret.value)
 }
 
 output "bastion_public_ip" {
