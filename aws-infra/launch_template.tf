@@ -7,7 +7,10 @@ locals {
         curl https://get.docker.com | bash
         adduser ubuntu docker
 
-        apt install -y awscli
+        apt-get install -y unzip
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        ./aws/install
+
         mkdir -p /data
         PROXY_SECRET=$(aws ssm get-parameter --region ${var.region} --name "${aws_ssm_parameter.proxy_secret.name}" --query "Parameter.Value" --output text)
         echo "$PROXY_SECRET" > /data/secret
