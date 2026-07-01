@@ -20,5 +20,9 @@ resource "aws_route_table" "to_nat_instance" {
         network_interface_id = aws_instance.nat_instance.primary_network_interface_id
     }
 
+    tags = {
+      "Name" = "to_nat_eni"
+    }
+
     depends_on = [ aws_eip.nat_instance_eip ]
 }
